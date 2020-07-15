@@ -1,30 +1,22 @@
 package com.udacity.jwdnd.c1.review.model;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.List;
-
 public class ChatMessage {
     private String username;
     private String message;
 
-   public String getUsername()
-   {
+    public String getUsername() {
+        return username;
+    }
 
-       return username;
-   }
-   public void setUsername(String username)
-   {
-       this.username=username;
-   }
-   public String getMessage()
-   {
-       return message;
-   }
-   public void setMessage(String message)
-   {
-       this.message=message;
-   }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
+    public String getMessage() {
+        return message;
+    }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }
