@@ -22,13 +22,13 @@ public class ChatController {
     }
 
     @GetMapping
-    public String getChatPage(@ModelAttribute("chatForm") ChatForm chatForm, Model model) {
+    public String getChatPage( ChatForm chatForm, Model model) {
         model.addAttribute("chatMessages", this.messageService.getChatMessages());
         return "chat";
     }
 
     @PostMapping
-    public String postChatMessage(@ModelAttribute("chatForm")ChatForm chatForm, Model model) {
+    public String postChatMessage(ChatForm chatForm, Model model) {
         this.messageService.addMessage(chatForm);
         chatForm.setMessageText("");
         chatForm.setUsername("");
