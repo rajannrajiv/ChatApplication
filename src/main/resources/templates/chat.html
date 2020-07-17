@@ -1,19 +1,45 @@
+
 <!doctype html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Signin Template for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
 </head>
-<body>
-<form th:object="${chatForm}" action="#" th:action="@{/chat}" method="POST">
-    <label for="username">Username:</label>
-    <input id="username" type="text" th:field="*{username}">
-    <label for="messageText">Message Text:</label>
-    <input id="messageText" type="text" th:field="*{messageText}">
-    <label for="messageType">Message Type: </label>
+<body class="text-center">
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvOqvG2mHXevP2rCUhhUFoInAY5rcSoDCWFg&usqp=CAU" id="icon" alt="User Icon" width="100" height="100" />
+        </div>
+<form class="form-signin" th:object="${chatForm}" action="#" th:action="@{/chat}" method="POST">
+
+
+  <label for="username" class="sr-only">Email adress:</label>
+
+    <input id="username" type="text" th:field="*{username}" class="fadeIn second" name="username"  ><br>
+
+   <label for="messageText" class="sr-only">Message Text:</label>
+
+    <input id="messageText" type="text" th:field="*{messageText}" class="fadeIn third" name="messageText"  ><br>
+
+   <!-- <label for="messageType">Message Type: </label>
+
     <select id="messageType" th:field="*{messageType}">
         <option
                 th:each="type : ${allMessageTypes}"
@@ -22,12 +48,34 @@
         >
             Say
         </option>
-    </select>
-    <input type="submit">
+    </select><br>
+    <input type="submit" class="fadeIn fourth" value="Log In">
 </form>
-<div th:each="chatMessage : ${chatMessages}">
+-->
+
+        <div class="col-sm-4">
+            <div  class="form-inline">
+            <span style="white-space: nowrap">
+              <label for="messageType">Message Type: </label>
+              <select class="form-control" id="messageType" th:field="*{messageType}" style="background-color: black; color: silver">
+                 <option
+                         th:each="type : ${allMessageTypes}"
+                         th:value="${type}"
+                         th:text="${type}"
+                 >
+            Say
+        </option>
+    </select>
+            </span>
+            </div>
+        </div>
+    <input type="submit" class="fadeIn fourth" value="Log In">
+</form>
+
+        <div th:each="chatMessage : ${chatMessages}">
     <span style="color:blue" th:text="${chatMessage.username}">Username</span>: <span style="color:red" th:text="${chatMessage.message}">Hello, world!</span>
 </div>
-
+    </div>
+</div>
 </body>
 </html>
